@@ -5,6 +5,7 @@ public class Article {
   private String title;
   private String body;
   private String regDate;
+  private String updateDate;
 
   public String getRegDate() {
     return regDate;
@@ -36,5 +37,13 @@ public class Article {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+  public String getUpdateDate() {
+        return updateDate;
+  }
+
+  public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
   }
 }
