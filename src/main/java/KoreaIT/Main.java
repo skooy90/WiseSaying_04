@@ -7,15 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+  static List<Article> articleList = new ArrayList<>();
   public static void main(String[] args) {
 
-//        Test.test();
-
-    List<Article> articleList = new ArrayList<>();
-
     System.out.println("== 프로그램 시작 ==");
-
-    int lastId = 0;
+    makeTestData();
+    int lastId = 3;
 
     Scanner sc = new Scanner(System.in);
 
@@ -136,7 +133,8 @@ public class Main {
               System.out.println("번호 : " + article.getId());
               System.out.println("날짜 : " + article.getRegDate());
 
-              if (article.getUpdateDate() != null) { // String 널체크 문법 체크
+//              if (article.getUpdateDate() != null) { // String 널체크 문법 체크
+              if (article.getUpdateDate() != null && !article.getUpdateDate().isEmpty()) { // 클래스를 이용한 ""를 이용한 빈값적용
                 System.out.println("수정날짜 : " + article.getUpdateDate());
               }
 
@@ -175,11 +173,7 @@ public class Main {
         lastId++;
         int id = lastId;
 
-        Article addArticle = new Article();
-        addArticle.setId(id);
-        addArticle.setTitle(title);
-        addArticle.setBody(body);
-        addArticle.setRegDate(regDate);
+        Article addArticle = new Article(id, title, body, regDate, "");
 
         articleList.add(addArticle);
 
@@ -195,6 +189,18 @@ public class Main {
       }
 
     }
+
+  }
+
+  private static void makeTestData() {
+    System.out.println("테스트를 위한 테이터를 생성합니다.");
+
+    articleList.add(new Article(1,"제목1","내용1","2025-03-12" +
+            "12:12:12",Util.getNowBate()));
+    articleList.add(new Article(2,"제목2","내용2","2025-03-12" +
+            "12:12:12",Util.getNowBate()));
+    articleList.add(new Article(3,"제목3","내용3","2025-03-12" +
+            "12:12:12",Util.getNowBate()));
 
   }
 }
