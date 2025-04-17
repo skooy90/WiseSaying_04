@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Util {
 
-  public static String getNowBate(){
+  public static String getNowDate(){
     LocalDateTime now = LocalDateTime.now();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
