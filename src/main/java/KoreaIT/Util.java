@@ -3,18 +3,17 @@ package KoreaIT;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Test {
+public class Util {
 
-  public static void test(){
+  public static String getNowBate(){
     LocalDateTime now = LocalDateTime.now();
-    System.out.println(now);
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     String formatedNow = now.format(formatter);
-    System.out.println(formatedNow);
 
 
 
+    return formatedNow;
   }
 
 }
